@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.example.blogpessoal.model.Postagem;
 import com.example.blogpessoal.model.Tema;
 import com.example.blogpessoal.repository.TemaRepository;
 
@@ -72,14 +71,5 @@ public class TemaController {
 		
 		temaRepository.deleteById(id);	
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

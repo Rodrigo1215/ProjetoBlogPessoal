@@ -15,6 +15,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
 @Entity
 @Table(name = "tb_postagens")
 public class Postagem {
@@ -38,8 +39,19 @@ public class Postagem {
 	@JsonIgnoreProperties("postagem")
 	private Tema tema;
 
-	/* Métodos Get and Set*/
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Usuario usuario;
 	
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -79,6 +91,5 @@ public class Postagem {
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
-	
 
 }

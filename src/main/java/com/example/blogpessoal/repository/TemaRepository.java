@@ -14,7 +14,4 @@ public interface TemaRepository extends JpaRepository<Tema, Long> {
 
 	public Tema getById(Postagem postagem);
 
-
-
-
 }

@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.example.blogpessoal.model.Postagem;
-import com.example.blogpessoal.model.Tema;
 import com.example.blogpessoal.repository.PostagemRepository;
 import com.example.blogpessoal.repository.TemaRepository;
 
@@ -71,13 +70,6 @@ public class PostagemController {
 		
 		postagemRepository.deleteById(id);	
 	}
-	
-	
-	
-
-	
-	
-	
 
 }
 	
