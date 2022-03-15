@@ -16,6 +16,8 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 /**
  * @author Marcelo Barboza
  * 	Anotação @Email valida se o valor digitado no atributo se trata de um email válido
@@ -36,6 +38,7 @@ public class Usuario {
 	@Size(max = 5000, message = "O link da foto não pode ser maior do que 5000 caractéres")
 	private String foto;
 
+	@Schema(example = "email@email.com")
 	@NotNull(message = "O atributo Usuário é Obrigatório!")
 	@Email(message = "O atributo Usuário deve ser um email válido!")
 	private String usuario;

@@ -53,6 +53,10 @@ public class UsuarioLogin {
 	public String getUsuario() {
 		return usuario;
 	}
+	
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 
 	public String getToken() {
 		return token;
@@ -62,9 +66,6 @@ public class UsuarioLogin {
 		this.token = token;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
 
 	public String getSenha() {
 		return senha;

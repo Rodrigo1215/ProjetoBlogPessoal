@@ -2,6 +2,8 @@ package com.example.blogpessoal.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,15 +46,13 @@ public class PostagemController {
 	}
 	
 	@PostMapping
-	public boolean postPostagem ( @RequestBody Postagem postagem){
-		if( temaRepository.existsById(postagem.getTema().getId()) == true) {
-			return true;
-		}
-		else {
-			return false;
-		}
-		
+	public ResponseEntity<Postagem> postPostagem(@Valid @RequestBody Postagem postagem) {
+		if (temaRepository.existsById(postagem.getTema().getId()))
+			return ResponseEntity.status(HttpStatus.CREATED).body(postagemRepository.save(postagem));
+		return ResponseEntity.badRequest().build();
 	}
+		
+	
 	@PutMapping
 	public ResponseEntity<Postagem> putPostagem (@RequestBody Postagem postagem){
 		return postagemRepository.findById(postagem.getId())
