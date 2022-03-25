@@ -27,10 +27,7 @@ import com.example.blogpessoal.service.UsuarioService;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
 
-	/**
-	 * Faz uma injeção de dependência da classe de Serviço UsuarioService
-	 * para ter acesso aos métodos do CRUD com regras de negócio
-	 */
+
 	@Autowired
 	private UsuarioService usuarioService;
 
@@ -50,15 +47,7 @@ public class UsuarioController {
 			.map(resposta -> ResponseEntity.ok(resposta))
 			.orElse(ResponseEntity.notFound().build());
 	}
-	
-	/**
-	 * Executa o método autenticarUsuario da classe de serviço para efetuar
-	 * o login na api. O método da classe Controladora checa se deu certo e
-	 * exibe as mensagens (Response Status) pertinentes. 
-	 * 
-	 * Caso o login tenha sido bem sucedido, os dados do usuário e o token 
-	 * são exibidos.
-	 */
+
 	@PostMapping("/logar")
 	public ResponseEntity<UsuarioLogin> login(@Valid @RequestBody Optional<UsuarioLogin> usuarioLogin) {
 		return usuarioService.autenticarUsuario(usuarioLogin)
@@ -66,14 +55,7 @@ public class UsuarioController {
 			.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
 
-	/**
-	 * Executa o método cadastrarUsuario da classe de serviço para criar
-	 * um novo usuário na api. O método da classe Controladora checa se 
-	 * deu certo e exibe as mensagens (Response Status) pertinentes. 
-	 * 
-	 * Caso cadastro tenha sido bem sucedido, os dados do usuário são 
-	 * exibidos.
-	 */
+	
 	@PostMapping("/cadastrar")
 	public ResponseEntity<Usuario> postUsuario(@Valid @RequestBody Usuario usuario) {
 
@@ -83,14 +65,7 @@ public class UsuarioController {
 
 	}
 
-	/**
-	 * Executa o método atualizarUsuario da classe de serviço para atualizar
-	 * os dados de um usuário na api. O método da classe Controladora checa 
-	 * se deu certo e exibe as mensagens (Response Status) pertinentes. 
-	 * 
-	 * Caso a atualização tenha sido bem sucedida, os dados do usuário 
-	 * atualizados são exibidos.
-	 */
+	
 	@PutMapping("/atualizar")
 	public ResponseEntity<Usuario> putUsuario(@Valid @RequestBody Usuario usuario) {
 		return usuarioService.atualizarUsuario(usuario)
